@@ -45,6 +45,10 @@ public class User {
     @JoinColumn(name ="user_details_id",unique = true)
     private UserDetails userDetails;
 
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "order_id")
+    private Order order;
+
 
 
 }
