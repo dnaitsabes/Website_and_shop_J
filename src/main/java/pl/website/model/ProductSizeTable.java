@@ -15,3 +15,8 @@ public class ProductSizeTable {
     private String productSizeDescription;
 
 }
+
+/*
+// items server
+przechowywanie zdjec moduł zarzadzania plikami
+*/

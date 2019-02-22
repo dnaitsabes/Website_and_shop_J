@@ -5,9 +5,12 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 
+// Nie potrzebne powiązania
+
 @Entity
 @Table(name = "users_details")
 public class UserDetails {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

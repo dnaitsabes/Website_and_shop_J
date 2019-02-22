@@ -4,6 +4,8 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+// powiązanie OneToMany z productSize jednostronnie
+//Powiązanie ManyToMany z productDetails dwustronnie
 @Entity
 @Table(name = "products_details")
 public class ProductDetails {

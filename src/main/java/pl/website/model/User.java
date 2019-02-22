@@ -7,6 +7,10 @@ import org.hibernate.validator.constraints.NotBlank;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDate;
+
+// Powiązanie oneToOne z UserDetails jednostronnie
+// Powiązanie oneToOne z order dwustronnie
 
 @Entity
 @Table(name = "users")
@@ -30,12 +34,15 @@ public class User {
     @Size(min = 5,max =120)
     @Email
     @NotBlank(message = "Musisz podać adres e-mail ")
-    private String email;
+    private String email; // unique
 
     @Column(length = 50)
     @Size(min = 5,max =50)
     @NotBlank(message = "Pole hasło nie możę być puste")
     private String password;
+
+    @NotNull
+    private LocalDate userCreatedDate;
 
     @ColumnDefault("false")
     @NotNull
