@@ -32,6 +32,6 @@ public class ProductType {
     private ProductCategory productCategory;
 
     //Relation one to many with product, two-way relations
-    @OneToMany(mappedBy = "products_types", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productType", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
 }

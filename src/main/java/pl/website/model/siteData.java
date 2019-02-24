@@ -10,5 +10,7 @@ public class siteData {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String siteTitle;
+
 
 }

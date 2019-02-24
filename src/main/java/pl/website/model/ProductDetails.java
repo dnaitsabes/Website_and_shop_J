@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,6 +27,9 @@ public class ProductDetails {
     @Size(max = 100)
     @NotBlank
     private String productTypeOfMaterial;
+
+    @NotBlank
+    private BigDecimal price;
 
 
     @ManyToMany(mappedBy = "productsDetails")

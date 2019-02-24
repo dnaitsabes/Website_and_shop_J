@@ -27,9 +27,12 @@ public class ProductCategory {
     private String productCategoryDescripton;
 
 
-    //Relation One to many with productType  - two-way relations
-    @OneToMany(mappedBy = "product_category", cascade = CascadeType.ALL)
+    //Relation OneToMany with productType  - two-way relations
+    @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL)
     private List<ProductType> productTypes = new ArrayList<>();
 
+    //Relation ManyToMany with order two-way relation
+    @ManyToMany(mappedBy = "productCategory")
+    private List<Order> orders = new ArrayList<>();
 
 }

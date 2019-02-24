@@ -50,10 +50,12 @@ public class User {
     @NotNull
     private Boolean admin;
 
+    // Relation oneToOne with userDetails one-way relation
     @OneToOne
     @JoinColumn(name ="user_details_id",unique = true)
     private UserDetails userDetails;
 
+    //Relation OneToMany with order two-way relation
     @OneToMany( mappedBy = "user",cascade = CascadeType.ALL)
     private List<Order> order = new ArrayList<>();
 

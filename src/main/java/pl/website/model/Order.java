@@ -25,9 +25,9 @@ public class Order {
     @NotBlank
     private LocalDate orderDate;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_order")
-    private List<Product> products = new ArrayList<>();
+    // relation ManyToMany with productsCategory
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<ProductCategory> productCategory = new ArrayList<>();
 
     @ManyToOne
     private User user;

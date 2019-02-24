@@ -39,7 +39,7 @@ public class Product {
     private List<ProductDetails> productsDetails = new ArrayList<>();
 
 
-    //Relation Many to many with oriductSu=izeTable two-way relation
+    //Relation Many to many with oproductSuizeTable two-way relation
     @ManyToMany(cascade = CascadeType.MERGE)
     private List<ProductSizeTable> productSizeTables = new ArrayList<>();
 }
