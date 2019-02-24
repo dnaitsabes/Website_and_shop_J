@@ -8,6 +8,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 // Powiązanie oneToOne z UserDetails jednostronnie
 // Powiązanie oneToOne z order dwustronnie
@@ -52,9 +54,8 @@ public class User {
     @JoinColumn(name ="user_details_id",unique = true)
     private UserDetails userDetails;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "order_id")
-    private Order order;
+    @OneToMany( mappedBy = "user",cascade = CascadeType.ALL)
+    private List<Order> order = new ArrayList<>();
 
 
 

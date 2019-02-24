@@ -31,19 +31,17 @@ public class Product {
     @NotBlank
     private String productCategoryDescription;
 
-    //Relation Many to many with oriductSu=izeTable two-way relation
-    @ManyToMany(cascade =  CascadeType.MERGE)
-    private List<ProductSizeTable> productSizeTables = new ArrayList<>();
-
     // Relation Many to One with productType two-way relation
     @ManyToOne
     private ProductType productType;
 
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<ProductDetails> productsDetails = new ArrayList<>();
 
-    @ManyToMany(cascade =  CascadeType.MERGE)
-    private List<ProductDetails>  productsDetails =new ArrayList<>();
 
-
+    //Relation Many to many with oriductSu=izeTable two-way relation
+    @ManyToMany(cascade = CascadeType.MERGE)
+    private List<ProductSizeTable> productSizeTables = new ArrayList<>();
 }
 
 
