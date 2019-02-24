@@ -1,6 +1,9 @@
 package pl.website.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,16 +17,16 @@ public class ProductDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String productName;
-
-    private String productNameDescription;
-
-    private String productSize;
-
-    @OneToMany(mappedBy = "productsDetails", cascade = CascadeType.ALL)
-    private List<ProductSizeTable> productSizeTables = new ArrayList<>();
-
+    @Column(length = 100)
+    @Size(max = 100)
+    @NotBlank
     private String productColor;
+
+    @Column(length = 100)
+    @Size(max = 100)
+    @NotBlank
+    private String productTypeOfMaterial;
+
 
     @ManyToMany(mappedBy = "productsDetails")
     private List<Product> products = new ArrayList<>();

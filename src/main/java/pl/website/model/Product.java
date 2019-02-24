@@ -1,10 +1,12 @@
 package pl.website.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
-// Powiązanie ManyToMany z productDetails dwustronnie
 
 @Entity
 @Table(name = "products")
@@ -14,9 +16,28 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String productCategory;
+    @Column(length = 100)
+    @Size(max = 100)
+    @NotBlank
+    private String productName;
 
+    @Column(length = 200)
+    @Size(max = 200)
+    @NotBlank
+    private String productShortDescription;
+
+    @Column(length = 500)
+    @Size(max = 500)
+    @NotBlank
     private String productCategoryDescription;
+
+    //Relation Many to many with oriductSu=izeTable two-way relation
+    @ManyToMany(cascade =  CascadeType.MERGE)
+    private List<ProductSizeTable> productSizeTables = new ArrayList<>();
+
+    // Relation Many to One with productType two-way relation
+    @ManyToOne
+    private ProductType productType;
 
 
     @ManyToMany(cascade =  CascadeType.MERGE)
@@ -27,7 +48,4 @@ public class Product {
 
 
 
-// product category
-//prodyt sub product
 
-// product

@@ -29,9 +29,9 @@ public class Order {
     @JoinColumn(name = "id_order")
     private List<Product> products = new ArrayList<>();
 
-
+/*
     @ManyToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private User user;
+    private User user;*/
 
 
 }
