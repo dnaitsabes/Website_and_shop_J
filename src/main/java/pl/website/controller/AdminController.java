@@ -262,4 +262,53 @@ public class AdminController {
     }
 
     /*ADMIN DELETE CONTROLLERS !!!*/
+
+    //Delete Order
+    @GetMapping(value = "/order/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteOrder(@PathVariable Long id){
+        orderService.deleteOneOrderrById(id);
+        return "redirect:/admin/ordersList";
+    }
+    //Delete ProductCategory
+    @GetMapping(value = "/productCategory/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProductCategory(@PathVariable Long id){
+        productCategoryService.deleteOneProductCategoryById(id);
+        return "redirect:/admin/productCategoriesList";
+    }
+    //Delete ProductDetails
+    @GetMapping(value = "/productDetails/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProductDetails(@PathVariable Long id){
+        productDetailsService.deleteOneProductDetailsById(id);
+        return "redirect:/admin/productsDetailsList";
+    }
+    //Delete Product
+    @GetMapping(value = "/product/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProduct(@PathVariable Long id){
+        productService.deleteOneProductById(id);
+        return "redirect:/admin/productsList";
+    }
+    //Delete ProductSizeTable
+    @GetMapping(value = "/productSizeTable/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProductSizeTable(@PathVariable Long id){
+        productSizeTableService.deleteOneProductSizeTableById(id);
+        return "redirect:/admin/productSizeTableList";
+    }
+    //Delete ProductType
+    @GetMapping(value = "/productType/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProductType(@PathVariable Long id){
+        productTypeService.deleteOneProductTypeById(id);
+        return "redirect:/admin/productTypeList";
+    }
+    //Delete SiteData
+    @GetMapping(value = "/siteData/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteSiteData(@PathVariable Long id){
+        siteDataService.deleteOneSiteDataById(id);
+        return "redirect:/admin/siteDataList";
+    }
+    //Delete User
+    @GetMapping(value = "/user/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteUser(@PathVariable Long id){
+        userService.deleteOneUserById(id);
+        return "/admin/user/adminListUsers";
+    }
 }
