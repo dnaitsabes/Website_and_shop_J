@@ -12,4 +12,11 @@ public class HomePageController {
         return "/index/index";
     }
 
+    @GetMapping(value="/admin/adminMain",produces = "text/html; charset=UTF-8")
+    public String adminMain(){
+
+        return "/admin/adminMain";
+    }
+
+
 }

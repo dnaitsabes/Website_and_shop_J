@@ -36,7 +36,13 @@ public class AdminController {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    /*ADMIN SHOW ALL CONTROLLERS !!!*/
+    /*ADMIN SHOW ALL  !!!*/
+    //Show all newslletter
+    @RequestMapping(value = "/newslettersList", produces = "text/html; charset=UTF-8")
+    public String showAllNewsletters(Model model){
+        model.addAttribute("newsletter",newsletterService.findAllNewsletter());
+        return "/admin/newsletter/adminListNewsletter";
+    }
 
     //Show all orders
     @RequestMapping(value = "/ordersList", produces = "text/html; charset=UTF-8")
@@ -87,7 +93,7 @@ public class AdminController {
         return "/admin/user/adminListUsers";
     }
 
-    /*ADMIN UPDATES CONTROLLERS !!!*/
+    /*ADMIN UPDATES  !!!*/
 
     //Update Order By Id
     @GetMapping(value = "/order/update/{id}", produces = "text/html; charset=UTF-8")
@@ -168,7 +174,7 @@ public class AdminController {
     }
 
 
-        /*ADMIN ADD CONTROLLERS !!!*/
+        /*ADMIN ADD  !!!*/
 
     //Add new date for ProductCategories
     @GetMapping(value = "/productCategory/add", produces = "text/html; charset=UTF-8")
@@ -261,7 +267,7 @@ public class AdminController {
         return "redirect:/admin/siteDataList";
     }
 
-    /*ADMIN DELETE CONTROLLERS !!!*/
+    /*ADMIN DELETE  !!!*/
 
     //Delete Order
     @GetMapping(value = "/order/delete/{id}", produces = "text/html; charset=UTF-8")

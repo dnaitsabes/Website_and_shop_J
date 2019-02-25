@@ -35,6 +35,7 @@
             <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Dane kontaktowe</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> logowanie</a></li>
+            <li><a href="/admin/adminMain"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
         </ul>
     </div>
 </nav>
