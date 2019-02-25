@@ -170,6 +170,96 @@ public class AdminController {
 
         /*ADMIN ADD CONTROLLERS !!!*/
 
+    //Add new date for ProductCategories
+    @GetMapping(value = "/productCategory/add", produces = "text/html; charset=UTF-8")
+    public String addProductCategory(Model model) {
+        model.addAttribute("productCategory", new ProductCategory());
+        return "/admin/product/add/adminAddProductCategories";
+    }
+
+    @PostMapping(value = "/productCategory/add", produces = "text/html; charset=UTF-8")
+    public String addProductCategory(@Valid ProductCategory productCategory, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddProductCategories";
+        }
+        productCategoryService.saveProductCategory(productCategory);
+        return "redirect:/admin/productCategoriesList";
+    }
+    //Add new date for ProductDetail
+    @GetMapping(value = "/productDetail/add", produces = "text/html; charset=UTF-8")
+    public String addProductDetail(Model model) {
+        model.addAttribute("productDetail", new ProductDetails());
+        return "/admin/product/add/adminAddProductDetails";
+    }
+
+    @PostMapping(value = "/productDetail/add", produces = "text/html; charset=UTF-8")
+    public String addProductDetails(@Valid ProductDetails productDetails, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddProductDetails";
+        }
+        productDetailsService.saveProductDetails(productDetails);
+        return "redirect:/admin/productsDetailsList";
+    }
+    //Add new date for Product
+    @GetMapping(value = "/product/add", produces = "text/html; charset=UTF-8")
+    public String addProduct(Model model) {
+        model.addAttribute("product", new Product());
+        return "/admin/product/add/adminAddProducts";
+    }
+
+    @PostMapping(value = "/product/add", produces = "text/html; charset=UTF-8")
+    public String addProduct(@Valid Product product, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddProducts";
+        }
+        productService.saveProduct(product);
+        return "redirect:/admin/productsList";
+    }
+    //Add new date for ProductSizeTable
+    @GetMapping(value = "/productSizeTable/add", produces = "text/html; charset=UTF-8")
+    public String addProductSizeTable(Model model) {
+        model.addAttribute("productSizeTable", new ProductSizeTable());
+        return "/admin/product/add/adminAddProductSizeTable";
+    }
+
+    @PostMapping(value = "/productSizeTable/add", produces = "text/html; charset=UTF-8")
+    public String addProductSizeTable(@Valid ProductSizeTable productSizeTable, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddProductSizeTable";
+        }
+        productSizeTableService.saveProductSizeTable(productSizeTable);
+        return "redirect:/admin/productSizeTableList";
+    }
+    //Add new date for ProductType
+    @GetMapping(value = "/productType/add", produces = "text/html; charset=UTF-8")
+    public String addProductType(Model model) {
+        model.addAttribute("productType", new ProductType());
+        return "/admin/product/add/adminAddProductType";
+    }
+
+    @PostMapping(value = "/productType/add", produces = "text/html; charset=UTF-8")
+    public String addProductType(@Valid ProductType productType, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddProductType";
+        }
+        productTypeService.saveProductType(productType);
+        return "redirect:/admin/productTypeList";
+    }
+    //Add new date for SiteData
+    @GetMapping(value = "/siteData/add", produces = "text/html; charset=UTF-8")
+    public String addSiteData(Model model) {
+        model.addAttribute("siteData", new SiteData());
+        return "/admin/product/add/adminAddSiteData";
+    }
+
+    @PostMapping(value = "/siteData/add", produces = "text/html; charset=UTF-8")
+    public String addSiteData(@Valid SiteData siteData, BindingResult result) {
+        if (result.hasErrors()){
+            return "/admin/product/add/adminAddSiteData";
+        }
+        siteDataService.saveSiteData(siteData);
+        return "redirect:/admin/siteDataList";
+    }
 
     /*ADMIN DELETE CONTROLLERS !!!*/
 }
