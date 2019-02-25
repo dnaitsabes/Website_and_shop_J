@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,7 +13,38 @@
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 
+<div class="container">
 
+    <h2>Product List</h2>
+    <p></p>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>Kategoria rozmiaru produktu</th>
+            <th>Kod rozmiaru </th>
+            <th>opis kodu rozmiaru</th>
+            <th>uaktualnij</th>
+            <th>usuń</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${productSizeTableList}" var="productSizeTableList1">
+            <tr>
+                <td>${productSizeTableList1.id}</td>
+                <td>${productSizeTableList1.productSizeCategory}</td>
+                <td>${productSizeTableList1.getProductSizeCode}</td>
+                <td>${productSizeTableList1.productSizeDescription}</td>
+
+
+                <td><a href="product/update/${productSizeTableList1.id}">Uaktualnij rozmiary produktów</a></td>
+                <td><a href="product/delete/${productSizeTableList1.id}">usuń rozmiar produktów</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 
 <footer class="container-fluid text-center" id="footer">
 

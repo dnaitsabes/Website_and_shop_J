@@ -18,30 +18,30 @@
         <div class="col-sm-6">
             <ul class="list-group">
                 <li class="list-group-item">Produkty</li><br>
-                <a href="/productsList" class="list-group-item">Lista produktów</a>
-                <a href="/product/add" class="list-group-item">Dodaj produkt</a><br>
+                <a href="productsList" class="list-group-item">Lista produktów</a>
+                <a href="product/add" class="list-group-item">Dodaj produkt</a><br>
 
-                <a href="/productsDetailsList" class="list-group-item">Lista Szczegółów produktów</a>
-                <a href="/productDetail/add" class="list-group-item">DOdaj Szczegóły produktów</a><br>
+                <a href="productsDetailsList" class="list-group-item">Lista Szczegółów produktów</a>
+                <a href="productDetail/add" class="list-group-item">DOdaj Szczegóły produktów</a><br>
 
-                <a href="/productCategoriesList"class="list-group-item">Lista Kategori produktów</a>
-                <a href="/productCategory/add" class="list-group-item">Dodaj kategorie produktów</a><br>
+                <a href="productCategoriesList"class="list-group-item">Lista Kategori produktów</a>
+                <a href="productCategory/add" class="list-group-item">Dodaj kategorie produktów</a><br>
 
-                <a href="/productTypeList" class="list-group-item">Lista typów produktów</a>
-                <a href="/productType/add" class="list-group-item">Dodaj typów produktów</a><br>
+                <a href="productTypeList" class="list-group-item">Lista typów produktów</a>
+                <a href="productType/add" class="list-group-item">Dodaj typów produktów</a><br>
 
-                <a href="/productSizeTableList" class="list-group-item">Lista rozmiarów produktów</a>
-                <a href="/productSizeTable/add" class="list-group-item">Dodaj rozmiary produktów</a><br>
+                <a href="productSizeTableList" class="list-group-item">Lista rozmiarów produktów</a>
+                <a href="productSizeTable/add" class="list-group-item">Dodaj rozmiary produktów</a><br>
 
 
             </ul>
         </div>
         <div class="col-sm-6">
             <ul class="list-group">
-                <a href="/ordersList" class="list-group-item">Lista zamówień</a><br>
-                <a href="/newslettersList" class="list-group-item">Lista newslettera</a><br>
-                <a href="/usersList" class="list-group-item">Lista użytkowników</a><br>
-                <a href="/siteDataList" class="list-group-item">Lista danych strony</a><br>
+                <a href="ordersList" class="list-group-item">Lista zamówień</a><br>
+                <a href="newslettersList" class="list-group-item">Lista newslettera</a><br>
+                <a href="usersList" class="list-group-item">Lista użytkowników</a><br>
+                <a href="siteDataList" class="list-group-item">Lista danych strony</a><br>
             </ul>
         </div>
     </div>

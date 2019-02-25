@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,7 +13,35 @@
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 
+<div class="container">
 
+    <h2>Lista danych strony</h2>
+    <p></p>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>opis strony</th>
+
+            <th>uaktualnij</th>
+            <th>usuń</th>
+        </tr>
+        </thead>
+        <tbody>
+        <c:forEach items="${siteDataList}" var="siteDataList1">
+            <tr>
+                <td>${siteDataList1.id}</td>
+                <td>${siteDataList1.siteTitle}</td>
+
+
+                <td><a href="siteData/update/${siteDataList1.id}">Uaktualnij rozmiary produktów</a></td>
+                <td><a href="siteData/delete/${siteDataList1.id}">usuń rozmiar produktów</a></td>
+            </tr>
+        </c:forEach>
+        </tbody>
+    </table>
+</div>
 
 <footer class="container-fluid text-center" id="footer">
 

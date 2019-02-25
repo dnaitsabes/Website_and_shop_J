@@ -19,4 +19,27 @@ public class Newsletter {
     @Email
     @NotBlank(message = "Musisz podać adres e-mail ")
     private String email; // unique
+
+    public Newsletter() {
+    }
+
+    public Newsletter(String email) {
+        this.email = email;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

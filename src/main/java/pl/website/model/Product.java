@@ -29,7 +29,7 @@ public class Product {
     @Column(length = 500)
     @Size(max = 500)
     @NotBlank
-    private String productCategoryDescription;
+    private String productCategoryDescription; // zmienic na długi opis
 
     // Relation Many to One with productType two-way relation
     @ManyToOne

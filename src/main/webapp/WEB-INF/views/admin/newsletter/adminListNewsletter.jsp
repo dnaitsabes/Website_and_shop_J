@@ -31,6 +31,7 @@
             <td>${newsletter1.id}</td>
             <td>${newsletter1.email}</td>
         </tr>
+        </c:forEach>
         </tbody>
     </table>
 </div>
