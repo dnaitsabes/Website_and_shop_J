@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "site_data")
-public class siteData {
+public class SiteData {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,10 +12,10 @@ public class siteData {
 
     private String siteTitle;
 
-    public siteData() {
+    public SiteData() {
     }
 
-    public siteData(String siteTitle) {
+    public SiteData(String siteTitle) {
         this.siteTitle = siteTitle;
     }
 
