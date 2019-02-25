@@ -15,7 +15,7 @@ public class SiteDataService {
     @Autowired
     private SiteDataRepository siteDataRepository;
 
-    public List<SiteData> findAllProductType(){
+    public List<SiteData> findAllSiteData(){
         return siteDataRepository.findAll();
     }
 
