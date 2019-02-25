@@ -34,4 +34,54 @@ public class ProductType {
     //Relation one to many with product, two-way relations
     @OneToMany(mappedBy = "productType", cascade = CascadeType.ALL)
     private List<Product> products = new ArrayList<>();
+
+    public ProductType() {
+    }
+
+    public ProductType(String productTypeName, String productTypeDescription, ProductCategory productCategory, List<Product> products) {
+        this.productTypeName = productTypeName;
+        this.productTypeDescription = productTypeDescription;
+        this.productCategory = productCategory;
+        this.products = products;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProductTypeName() {
+        return productTypeName;
+    }
+
+    public void setProductTypeName(String productTypeName) {
+        this.productTypeName = productTypeName;
+    }
+
+    public String getProductTypeDescription() {
+        return productTypeDescription;
+    }
+
+    public void setProductTypeDescription(String productTypeDescription) {
+        this.productTypeDescription = productTypeDescription;
+    }
+
+    public ProductCategory getProductCategory() {
+        return productCategory;
+    }
+
+    public void setProductCategory(ProductCategory productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }

@@ -42,6 +42,74 @@ public class Product {
     //Relation Many to many with oproductSuizeTable two-way relation
     @ManyToMany(cascade = CascadeType.MERGE)
     private List<ProductSizeTable> productSizeTables = new ArrayList<>();
+
+    public Product() {
+    }
+
+    public Product(String productName, String productShortDescription, String productCategoryDescription, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
+        this.productName = productName;
+        this.productShortDescription = productShortDescription;
+        this.productCategoryDescription = productCategoryDescription;
+        this.productType = productType;
+        this.productsDetails = productsDetails;
+        this.productSizeTables = productSizeTables;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public String getProductShortDescription() {
+        return productShortDescription;
+    }
+
+    public void setProductShortDescription(String productShortDescription) {
+        this.productShortDescription = productShortDescription;
+    }
+
+    public String getProductCategoryDescription() {
+        return productCategoryDescription;
+    }
+
+    public void setProductCategoryDescription(String productCategoryDescription) {
+        this.productCategoryDescription = productCategoryDescription;
+    }
+
+    public ProductType getProductType() {
+        return productType;
+    }
+
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
+    }
+
+    public List<ProductDetails> getProductsDetails() {
+        return productsDetails;
+    }
+
+    public void setProductsDetails(List<ProductDetails> productsDetails) {
+        this.productsDetails = productsDetails;
+    }
+
+    public List<ProductSizeTable> getProductSizeTables() {
+        return productSizeTables;
+    }
+
+    public void setProductSizeTables(List<ProductSizeTable> productSizeTables) {
+        this.productSizeTables = productSizeTables;
+    }
 }
 
 

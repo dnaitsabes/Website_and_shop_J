@@ -35,5 +35,53 @@ public class ProductDetails {
     @ManyToMany(mappedBy = "productsDetails")
     private List<Product> products = new ArrayList<>();
 
+    public ProductDetails() {
+    }
 
+    public ProductDetails(String productColor, String productTypeOfMaterial, BigDecimal price, List<Product> products) {
+        this.productColor = productColor;
+        this.productTypeOfMaterial = productTypeOfMaterial;
+        this.price = price;
+        this.products = products;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getProductColor() {
+        return productColor;
+    }
+
+    public void setProductColor(String productColor) {
+        this.productColor = productColor;
+    }
+
+    public String getProductTypeOfMaterial() {
+        return productTypeOfMaterial;
+    }
+
+    public void setProductTypeOfMaterial(String productTypeOfMaterial) {
+        this.productTypeOfMaterial = productTypeOfMaterial;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }
