@@ -96,10 +96,7 @@ public class AdminController {
         return "/admin/order/adminUpdateOrder";
     }
     @PostMapping(value = "/order/update", produces = "text/html; charset=UTF-8")
-    public String updateOrder(@Valid Order order, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/order/adminUpdateOrder";
-        }
+    public String updateOrder(@ModelAttribute Order order) {
         orderService.saveOrder(order);
         return "redirect:/admin/ordersList";
     }
@@ -110,10 +107,7 @@ public class AdminController {
         return "/admin/product/update/adminUpdateProductCategories";
     }
     @PostMapping(value = "/productCategories/update", produces = "text/html; charset=UTF-8")
-    public String updateProductCategories(@Valid ProductCategory productCategory, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/productCategories/adminUpdateProductCategories";
-        }
+    public String updateProductCategories(@ModelAttribute ProductCategory productCategory) {
         productCategoryService.saveProductCategory(productCategory);
         return "redirect:/admin/productCategoriesList";
     }
@@ -124,10 +118,7 @@ public class AdminController {
         return "/admin/order/adminUpdateOrder";
     }
     @PostMapping(value = "/update", produces = "text/html; charset=UTF-8")
-    public String updateProductDetails(@Valid ProductDetails productDetails, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/product/update/adminUpdateProductDetails";
-        }
+    public String updateProductDetails(@ModelAttribute ProductDetails productDetails) {
         productDetailsService.saveProductDetails(productDetails);
         return "redirect:/admin/ordersList";
     }
@@ -138,10 +129,7 @@ public class AdminController {
         return "/admin/product/update/adminUpdateProduct";
     }
     @PostMapping(value = "/products/update", produces = "text/html; charset=UTF-8")
-    public String updateProduct(@Valid Product product, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/product/update/adminUpdateProduct";
-        }
+    public String updateProduct(@ModelAttribute Product product) {
         productService.saveProduct(product);
         return "redirect:/admin/productsList";
     }
@@ -152,10 +140,7 @@ public class AdminController {
         return "/admin/product/update/adminUpdateProductSizeTable";
     }
     @PostMapping(value = "/productSizeTable/update", produces = "text/html; charset=UTF-8")
-    public String updateProductSizeTable(@Valid ProductSizeTable productSizeTable, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/product/update/adminUpdateProductSizeTable";
-        }
+    public String updateProductSizeTable(@ModelAttribute ProductSizeTable productSizeTable) {
         productSizeTableService.saveProductSizeTable(productSizeTable);
         return "redirect:/admin/productSizeTableList";
     }
@@ -166,10 +151,7 @@ public class AdminController {
         return "/admin/product/update/adminUpdateProductType";
     }
     @PostMapping(value = "/productType/update", produces = "text/html; charset=UTF-8")
-    public String updateProductType(@Valid ProductType productType, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/product/update/adminUpdateProductType";
-        }
+    public String updateProductType(@ModelAttribute ProductType productType) {
         productTypeService.saveProductType(productType);
         return "redirect:/admin/productTypeList";
     }
@@ -179,11 +161,8 @@ public class AdminController {
         model.addAttribute("updateSiteData",siteDataService.findOneSiteDataById(id));
         return "/admin/siteData/adminUpdateSiteData";
     }
-    @PostMapping(value = "/update", produces = "text/html; charset=UTF-8")
-    public String updateSiteData(@Valid SiteData siteData, BindingResult result) {
-        if (result.hasErrors()){
-            return "/admin/siteData/adminUpdateSiteData";
-        }
+    @PostMapping(value = "/siteData/update", produces = "text/html; charset=UTF-8")
+    public String updateSiteData(@ModelAttribute SiteData siteData) {
         siteDataService.saveSiteData(siteData);
         return "redirect:/admin/siteDataList";
     }
