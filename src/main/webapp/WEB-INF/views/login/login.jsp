@@ -13,18 +13,18 @@
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 
-<form:form class="form-horizontal" method="post" action="/register">
+<form class="form-horizontal" method="post" >
 
     <div class="form-group">
         <label class="control-label col-sm-2">Email:</label>
         <div class="col-sm-10">
-            <form:input name="loginEmail" class="form-control" />
+            <input  type="text" class="form-control"  name="loginEmail"/>
         </div>
     </div>
     <div class="form-group">
         <label class="control-label col-sm-2">Hasło</label>
         <div class="col-sm-10">
-            <form:password name="loginPassword" class="form-control" />
+            <input type="password"  class="form-control"  name="loginPassword"/>
         </div>
     </div>
      <div class="form-group">
@@ -32,7 +32,7 @@
             <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
-</form:form>
+</form>
 
 
 

@@ -30,18 +30,20 @@ public class LoginRegisterController {
     public String login(){
         return "/login/login";
     }
+
     @PostMapping("/login")
     public  String dataFromLogin(@RequestParam String loginEmail, @RequestParam String loginPassword, Model model){
         User userLoged =userService.finOneUserByEmail(loginEmail);
         if (BCrypt.checkpw(loginPassword, userLoged.getPassword())) {
-        model.addAttribute(userLoged);
+
+        model.addAttribute("userLoged",userLoged);
 
         } else {
-            System.out.println("zły email lub hasło");
+
             return "/login/login";
         }
 
-        return "redirect:/";
+        return  "redirect:/";
     }
 
 
