@@ -33,8 +33,8 @@
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="active"></span> Regulamin</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Dane kontaktowe</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> logowanie</a></li>
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> logowanie</a></li>
             <li><a href="/admin/adminMain"><span class="glyphicon glyphicon-log-in"></span> Admin</a></li>
         </ul>
     </div>

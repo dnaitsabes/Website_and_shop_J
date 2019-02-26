@@ -44,7 +44,7 @@ public class User {
     @NotBlank(message = "Pole hasło nie możę być puste")
     private String password;
 
-    @NotNull
+   // @NotNull
     private LocalDate userCreatedDate;
 
     @ColumnDefault("false")
