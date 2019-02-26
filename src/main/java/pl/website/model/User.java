@@ -39,12 +39,11 @@ public class User {
     @NotBlank(message = "Musisz podać adres e-mail ")
     private String email; // unique
 
-    @Column(length = 50)
-    @Size(min = 5,max =50)
+    @Column()
+    @Size(min = 5)
     @NotBlank(message = "Pole hasło nie możę być puste")
     private String password;
 
-   // @NotNull
     private LocalDate userCreatedDate;
 
     @ColumnDefault("false")
@@ -144,5 +143,20 @@ public class User {
 
     public void setOrder(List<Order> order) {
         this.order = order;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", LastName='" + LastName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", userCreatedDate=" + userCreatedDate +
+                ", admin=" + admin +
+                ", userDetails=" + userDetails +
+                ", order=" + order +
+                '}';
     }
 }

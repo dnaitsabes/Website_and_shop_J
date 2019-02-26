@@ -12,8 +12,9 @@
 </head>
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
-< class="col-sm-4">
+
 <form:form class="form-horizontal" method="post" modelAttribute="user">
+    <form:errors path="*"/><br><br>
     <div class="form-group">
         <label class="control-label col-sm-2">Email:</label>
         <div class="col-sm-10">
@@ -35,18 +36,13 @@
     <div class="form-group">
         <label class="control-label col-sm-2">Hasło</label>
         <div class="col-sm-10">
-            <form:input path="password" class="form-control" />
+            <form:password path="password" class="form-control" />
         </div>
     </div>
     <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
             <label><form:checkbox path="admin" value="true"/>Admin</label>
         </div>
-    </div>
-    <div class="form-group">
-
-            <form:hidden path="LocalDate" value ="${createdDate}" />
-
     </div>
 
     <div class="form-group">

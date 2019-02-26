@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,34 +13,26 @@
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 
-<div class="col-sm-4">
-<form class="form-horizontal" action="/action_page.php">
+<form:form class="form-horizontal" method="post" action="/register">
+
     <div class="form-group">
-        <label class="control-label col-sm-2" for="email">Email:</label>
+        <label class="control-label col-sm-2">Email:</label>
         <div class="col-sm-10">
-            <input type="email" class="form-control" id="email" placeholder="Enter email">
+            <form:input name="loginEmail" class="form-control" />
         </div>
     </div>
     <div class="form-group">
-        <label class="control-label col-sm-2" for="pwd">Password:</label>
+        <label class="control-label col-sm-2">Hasło</label>
         <div class="col-sm-10">
-            <input type="password" class="form-control" id="pwd" placeholder="Enter password">
+            <form:password name="loginPassword" class="form-control" />
         </div>
     </div>
-    <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-            <div class="checkbox">
-                <label><input type="checkbox"> Remember me</label>
-            </div>
-        </div>
-    </div>
-    <div class="form-group">
+     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Submit</button>
         </div>
     </div>
-</form>
-</div>
+</form:form>
 
 
 
