@@ -36,6 +36,8 @@ public class AdminController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    private String[] productSizeCode={"XS","S","M","L","XL","XXL"};
+
     /*ADMIN SHOW ALL  !!!*/
     //Show all newslletter
     @RequestMapping(value = "/newslettersList", produces = "text/html; charset=UTF-8")
@@ -225,6 +227,7 @@ public class AdminController {
     @GetMapping(value = "/productSizeTable/add", produces = "text/html; charset=UTF-8")
     public String addProductSizeTable(Model model) {
         model.addAttribute("productSizeTable", new ProductSizeTable());
+        model.addAttribute("productSizeCode",productSizeCode);
         return "admin/product/add/adminAddProductSizeTable";
     }
 

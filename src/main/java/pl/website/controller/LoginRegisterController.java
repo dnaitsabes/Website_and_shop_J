@@ -33,10 +33,10 @@ public class LoginRegisterController {
 
     @PostMapping("/login")
     public  String dataFromLogin(@RequestParam String loginEmail, @RequestParam String loginPassword, Model model){
-        User userLoged =userService.finOneUserByEmail(loginEmail);
-        if (BCrypt.checkpw(loginPassword, userLoged.getPassword())) {
+        User userIsLoged =userService.finOneUserByEmail(loginEmail);
+        if (BCrypt.checkpw(loginPassword, userIsLoged.getPassword())) {
 
-        model.addAttribute("userLoged",userLoged);
+        model.addAttribute("userLoged",userIsLoged);
 
         } else {
 

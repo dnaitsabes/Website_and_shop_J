@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -12,13 +13,50 @@
 <body>
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 
+<form:form class="form-horizontal" method="post" modelAttribute="productCategory">
+    <form:errors path="*"/><br><br>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Nazwa Kategorii</label>
+        <div class="col-sm-10">
+            <form:input path="productCategoryName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Imie</label>
+        <div class="col-sm-10">
+            <form:input path="firstName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Nazwisko</label>
+        <div class="col-sm-10">
+            <form:input path="LastName" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Hasło</label>
+        <div class="col-sm-10">
+            <form:password path="password" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <label><form:checkbox path="admin" value="true"/>Admin</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-default">Submit</button>
+        </div>
+    </div>
+</form:form>
+
+
 
 
 <footer class="container-fluid text-center" id="footer">
 
 </footer>
-
-
-
 </body>
 </html>
