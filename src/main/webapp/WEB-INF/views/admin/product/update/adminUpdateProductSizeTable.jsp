@@ -13,7 +13,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <form:form class="form-horizontal" method="post" action="/admin/productSizeTable/update" modelAttribute="updateProductSizeTable" >
     <div class="form-group">

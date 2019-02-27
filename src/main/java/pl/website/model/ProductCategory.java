@@ -32,9 +32,10 @@ public class ProductCategory {
     private String productCategoryLink;
 
 
-    //Relation OneToMany with productType  - two-way relations
-    @OneToMany(mappedBy = "productCategory",fetch = FetchType.EAGER)
-    private List<ProductType> productTypes = new ArrayList<>();
+/*    //Relation OneToMany with productType  - two-way relations
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="id_products_categories")
+    private List<ProductType> productTypes = new ArrayList<>();*/
 
     //Relation ManyToMany with order two-way relation
     @ManyToMany(mappedBy = "productCategory")
@@ -43,11 +44,10 @@ public class ProductCategory {
     public ProductCategory() {
     }
 
-    public ProductCategory(String productCategoryName, String productCategoryDescripton, String productCategoryLink, List<ProductType> productTypes, List<Order> orders) {
+    public ProductCategory(String productCategoryName, String productCategoryDescripton, String productCategoryLink, List<Order> orders) {
         this.productCategoryName = productCategoryName;
         this.productCategoryDescripton = productCategoryDescripton;
         this.productCategoryLink = productCategoryLink;
-        this.productTypes = productTypes;
         this.orders = orders;
     }
 
@@ -75,13 +75,7 @@ public class ProductCategory {
         this.productCategoryDescripton = productCategoryDescripton;
     }
 
-    public List<ProductType> getProductTypes() {
-        return productTypes;
-    }
 
-    public void setProductTypes(List<ProductType> productTypes) {
-        this.productTypes = productTypes;
-    }
 
     public List<Order> getOrders() {
         return orders;
@@ -106,7 +100,6 @@ public class ProductCategory {
                 ", productCategoryName='" + productCategoryName + '\'' +
                 ", productCategoryDescripton='" + productCategoryDescripton + '\'' +
                 ", productCategoryLink='" + productCategoryLink + '\'' +
-                ", productTypes=" + productTypes +
                 ", orders=" + orders +
                 '}';
     }

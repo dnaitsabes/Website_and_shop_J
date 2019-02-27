@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <div class="container text-center">
     <h3>Dostępne akcje dla aministratora</h3><br>

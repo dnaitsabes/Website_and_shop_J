@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -29,6 +30,14 @@ import java.util.Locale;
 //do dataSpring
 @EnableJpaRepositories("pl.website.repository")
 public class AppConfig extends WebMvcConfigurerAdapter{
+    //Przepuszczanie statycznych obiektów
+    @Override
+
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+
+        configurer.enable();
+
+    }
 
     @Bean
     public ViewResolver viewResolver() {
@@ -37,6 +46,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver; }
+
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();

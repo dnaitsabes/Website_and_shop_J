@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <form:form class="form-horizontal" method="post" modelAttribute="productType">
     <form:errors path="*"/><br><br>
@@ -28,15 +28,7 @@
             <form:input path="productTypeDescription" class="form-control" />
         </div>
     </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2">Lista produktów do danego typu</label>
-        <div class="col-sm-10">
-            <form:select path="products" multiple="true">
-                <form:options value="0" label="Wybierz produkty"/>
-                <form:options items="${productsAttributes}" itemLabel="productName" itemValue="id"/>
-            </form:select>
-        </div>
-    </div>
+
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

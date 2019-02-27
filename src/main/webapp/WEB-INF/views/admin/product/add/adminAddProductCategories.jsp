@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 
 <form:form class="form-horizontal" method="post" modelAttribute="productCategory">
@@ -33,15 +33,6 @@
         <label class="control-label col-sm-2">Kategoria link do zdjęć</label>
         <div class="col-sm-10">
             <form:input path="productCategoryLink" class="form-control" />
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="control-label col-sm-2">Lista typów do danej kategorii</label>
-        <div class="col-sm-10">
-            <form:select path="productTypes" multiple="true">
-                <form:options value="0" label="Wybierz typy produkty"/>
-                <form:options items="${productTypesAttributes}" itemLabel="productTypeName" itemValue="id"/>
-            </form:select>
         </div>
     </div>
 

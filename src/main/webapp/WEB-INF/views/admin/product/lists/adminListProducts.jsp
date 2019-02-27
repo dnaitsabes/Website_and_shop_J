@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <div class="container">
 
@@ -27,6 +27,8 @@
             <th>krótki opis produktu</th>
             <th>długi opis produktu</th>
             <th>link do zdjecia produktu</th>
+            <th>typ produktu</th>
+
             <th>Cena</th>
 
             <th>uaktualnij</th>
@@ -42,6 +44,7 @@
                 <td>${productsList1.productLongDescription}</td>
                 <td>${productsList1.productLink}</td>
                 <td>${productsList1.price}</td>
+                <td>${productsList1.productType}</td>
 
 
                 <td><a href="products/update/${productsList1.id}">Uaktualnij produkt</a></td>

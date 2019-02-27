@@ -29,9 +29,7 @@ public class ProductType {
     @NotBlank
     private String productTypeDescription;
 
-    //Relation Many to one with productCategories two-way relation
-    @ManyToOne
-    private ProductCategory productCategory;
+
 
     //Relation one to many with product, two-way relations
     @OneToMany(mappedBy = "productType",fetch = FetchType.EAGER)
@@ -40,10 +38,9 @@ public class ProductType {
     public ProductType() {
     }
 
-    public ProductType(String productTypeName, String productTypeDescription, ProductCategory productCategory, List<Product> products) {
+    public ProductType(String productTypeName, String productTypeDescription, List<Product> products) {
         this.productTypeName = productTypeName;
         this.productTypeDescription = productTypeDescription;
-        this.productCategory = productCategory;
         this.products = products;
     }
 
@@ -71,13 +68,8 @@ public class ProductType {
         this.productTypeDescription = productTypeDescription;
     }
 
-    public ProductCategory getProductCategory() {
-        return productCategory;
-    }
 
-    public void setProductCategory(ProductCategory productCategory) {
-        this.productCategory = productCategory;
-    }
+
 
     public List<Product> getProducts() {
         return products;
@@ -93,8 +85,6 @@ public class ProductType {
                 "id=" + id +
                 ", productTypeName='" + productTypeName + '\'' +
                 ", productTypeDescription='" + productTypeDescription + '\'' +
-                ", productCategory=" + productCategory +
-                ", products=" + products +
                 '}';
     }
 }

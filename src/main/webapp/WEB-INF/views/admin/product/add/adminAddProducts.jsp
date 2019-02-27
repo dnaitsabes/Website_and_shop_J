@@ -13,7 +13,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <form:form class="form-horizontal" method="post" modelAttribute="product">
     <form:errors path="*"/><br><br>
@@ -47,24 +47,15 @@
             <form:input path="productLink" class="form-control" />
         </div>
     </div>
-   <%-- <div class="form-group">
-        <label class="control-label col-sm-2">Szczegóły produktu</label>
-        <div class="col-sm-10">
-            <form:select path="productsDetails">
-                <form:options value="0" label="Wybierz szczegóły produktu"/>
-                <form:options items="${productDetailsAttributes}" itemLabel="productColor" itemValue="id"/>
-            </form:select>
-        </div>
-    </div>
     <div class="form-group">
-        <label class="control-label col-sm-2">Rozmiary produktu</label>
-        <div class="col-sm-10">
-            <form:select path="productSizeTables">
-                <form:options value="0" label="Wybierz rozmiar produktu"/>
-                <form:options items="${productSizeTablesAttributes}" itemLabel="productSizeCategory" itemValue="id"/>
-            </form:select>
-        </div>
-    </div>--%>
+    <label class="control-label col-sm-2">Wybierz typ produktu</label>
+    <div class="col-sm-10">
+        <form:select path="productType" >
+            <form:options value="0" label="Wybierz typ produkty"/>
+            <form:options items="${productTypesAttributes}" itemLabel="productTypeName" itemValue="id"/>
+        </form:select>
+    </div>
+</div>
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">

@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 
 <form:form class="form-horizontal" method="post" action="/admin/products/update" modelAttribute="updateProduct" >
     <form:errors path="*"/><br><br>
@@ -44,6 +44,15 @@
         <label class="control-label col-sm-2">Link do zdjęcia produktu</label>
         <div class="col-sm-10">
             <form:input path="productLink" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="control-label col-sm-2">Wybierz typ produktu</label>
+        <div class="col-sm-10">
+            <form:select path="productType" >
+                <form:options value="0" label="Wybierz typ produkty"/>
+                <form:options items="${productTypesAttributes}" itemLabel="productTypeName" itemValue="id"/>
+            </form:select>
         </div>
     </div>
     <div class="form-group">

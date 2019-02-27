@@ -106,6 +106,14 @@ public class Product {
         this.productLink = productLink;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public ProductType getProductType() {
         return productType;
     }
@@ -128,14 +136,6 @@ public class Product {
 
     public void setProductSizeTables(List<ProductSizeTable> productSizeTables) {
         this.productSizeTables = productSizeTables;
-    }
-
-    public Double getPrice() {
-        return price;
-    }
-
-    public void setPrice(Double price) {
-        this.price = price;
     }
 
     @Override

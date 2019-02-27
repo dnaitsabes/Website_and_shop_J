@@ -12,7 +12,7 @@
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
 <body>
-<%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
+<%@include file="/header.jsp"%>
 <div class="container">
 
     <h2>Lista kategorii produktów</h2>
@@ -26,7 +26,6 @@
             <th>Nazwa kategorii produktów</th>
             <th>Opis kategorii produktów</th>
             <th>link kategorii produktów</th>
-            <th>Lisat typół produktów</th>
             <th>uaktualnij</th>
             <th>usuń</th>
         </tr>
@@ -39,9 +38,6 @@
                 <td>${productCategoriesList1.productCategoryDescripton}</td>
                 <td>${productCategoriesList1.productCategoryLink}</td>
 
-                <c:forEach items="${productCategoriesList1.productTypes}" var="productTypes1">
-                    <td>${productTypes1.productTypeName}</td>
-                </c:forEach>
                 <td><a href="productCategories/update/${productCategoriesList1.id}">Uaktualnij Kategorie produktów</a></td>
                 <td><a href="productCategory/delete/${productCategoriesList1.id}">usuń kategorie produktów</a></td>
             </tr>
