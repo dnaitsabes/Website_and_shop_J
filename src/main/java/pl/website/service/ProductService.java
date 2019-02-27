@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pl.website.model.Product;
 import pl.website.model.ProductDetails;
+import pl.website.model.ProductType;
 import pl.website.repository.ProductRepository;
 
 import java.util.List;
@@ -41,5 +42,9 @@ public class ProductService {
 
     public long countAllProduct(){
         return   productRepository.count();
+    }
+
+    public List<Product> findAllByProductType(ProductType productType){
+        return productRepository.findAllByProductType(productType);
     }
 }

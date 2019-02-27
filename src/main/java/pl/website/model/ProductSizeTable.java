@@ -20,8 +20,8 @@ public class ProductSizeTable {
     private String productSizeCategory;
 
     //Codle of size type like S or XS
-    @Column(length = 2)
-    @Size(max = 2)
+    @Column(length = 4)
+    @Size(max = 4)
     @NotBlank
     private String getProductSizeCode;
 

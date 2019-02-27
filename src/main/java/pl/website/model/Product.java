@@ -38,29 +38,32 @@ public class Product {
 
     private Double price;
 
+    private int quantity;
+
     // Relation Many to One with productType two-way relation
     @ManyToOne
     private ProductType productType;
 
     @Fetch(value = FetchMode.SUBSELECT)
-    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<ProductDetails> productsDetails = new ArrayList<>();
 
 
     //Relation Many to many with oproductSuizeTable two-way relation
     @Fetch(value = FetchMode.SUBSELECT)
-    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<ProductSizeTable> productSizeTables = new ArrayList<>();
 
     public Product() {
     }
 
-    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
+    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, int quantity, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
         this.productName = productName;
         this.productShortDescription = productShortDescription;
         this.productLongDescription = productLongDescription;
         this.productLink = productLink;
         this.price = price;
+        this.quantity = quantity;
         this.productType = productType;
         this.productsDetails = productsDetails;
         this.productSizeTables = productSizeTables;
@@ -114,6 +117,14 @@ public class Product {
         this.price = price;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public ProductType getProductType() {
         return productType;
     }
@@ -147,7 +158,7 @@ public class Product {
                 ", productLongDescription='" + productLongDescription + '\'' +
                 ", productLink='" + productLink + '\'' +
                 ", price=" + price +
-                ", productType=" + productType +
+                ", quantity=" + quantity +
                 ", productsDetails=" + productsDetails +
                 ", productSizeTables=" + productSizeTables +
                 '}';
