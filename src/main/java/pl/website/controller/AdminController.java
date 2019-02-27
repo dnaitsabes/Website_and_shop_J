@@ -139,8 +139,8 @@ public class AdminController {
         return "admin/product/update/adminUpdateProductCategories";
     }
     @PostMapping(value = "/productCategories/update", produces = "text/html; charset=UTF-8")
-    public String updateProductCategories(@ModelAttribute ProductCategory productCategory) {
-        productCategoryService.saveProductCategory(productCategory);
+    public String updateProductCategories(@ModelAttribute ProductCategory updateProductCategories) {
+        productCategoryService.saveProductCategory(updateProductCategories);
         return "redirect:/admin/productCategoriesList";
     }
     //Update ProductDetails By Id

@@ -33,7 +33,7 @@ public class ProductCategory {
 
 
     //Relation OneToMany with productType  - two-way relations
-    @OneToMany(mappedBy = "productCategory")
+    @OneToMany(mappedBy = "productCategory",fetch = FetchType.EAGER)
     private List<ProductType> productTypes = new ArrayList<>();
 
     //Relation ManyToMany with order two-way relation
@@ -97,5 +97,17 @@ public class ProductCategory {
 
     public void setProductCategoryLink(String productCategoryLink) {
         this.productCategoryLink = productCategoryLink;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductCategory{" +
+                "id=" + id +
+                ", productCategoryName='" + productCategoryName + '\'' +
+                ", productCategoryDescripton='" + productCategoryDescripton + '\'' +
+                ", productCategoryLink='" + productCategoryLink + '\'' +
+                ", productTypes=" + productTypes +
+                ", orders=" + orders +
+                '}';
     }
 }
