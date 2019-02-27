@@ -27,7 +27,7 @@
         <c:forEach items="${productForMaty}" var="productForMaty1">
 
             <!-- Grid column -->
-            <div class=col-sm-4" style="margin: 0 auto">
+            <div class=col-sm-4" >
                 <!-- Card -->
                 <div class="card align-items-center">
                     <!-- Card image -->
@@ -65,7 +65,7 @@
         <c:forEach items="${productForPiorniki}" var="productForPiorniki1">
 
             <!-- Grid column -->
-            <div class=col-sm-4" style="margin: 0 auto">
+            <div class=col-sm-4" >
                 <!-- Card -->
                 <div class="card align-items-center">
                     <!-- Card image -->
@@ -103,7 +103,7 @@
         <c:forEach items="${productForPlecaki}" var="productForPlecaki1">
 
             <!-- Grid column -->
-            <div class=col-sm-4" style="margin: 0 auto">
+            <div class=col-sm-4" >
                 <!-- Card -->
                 <div class="card align-items-center">
                     <!-- Card image -->
@@ -141,7 +141,7 @@
         <c:forEach items="${productForTorby}" var="productForTorby1">
 
             <!-- Grid column -->
-            <div class=col-sm-4" style="margin: 0 auto">
+            <div class=col-sm-4" >
                 <!-- Card -->
                 <div class="card align-items-center">
                     <!-- Card image -->
@@ -179,7 +179,7 @@
         <c:forEach items="${productForNerki}" var="productForNerki1">
 
             <!-- Grid column -->
-            <div class=col-sm-4" style="margin: 0 auto">
+            <div class=col-sm-4" >
                 <!-- Card -->
                 <div class="card align-items-center">
                     <!-- Card image -->

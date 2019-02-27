@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="pl">
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -13,15 +14,67 @@
 </head>
 <body>
 <%@include file="/header.jsp"%>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+        <h3 class="font-weight-bold blue-text">  <strong>  ${productDetail.productName}</strong></h3>
+        <h3 class="font-weight-bold blue-text">  <strong> ${productDetail.productShortDescription}</strong></h3>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4">
+        <img src="/pictures/${productDetail.productLink}" class="card-img-top" style="width: 55%; ; height: 55%; margin: 0 auto"
+             alt="">
+
+    </div>
+    <div class="col-sm-4">
+        <h4>${productDetail.productLongDescription}</h4>
+        <h4><strong>${productDetail.price} PLN</strong></h4>
+
+        <form:form method="post" modelAttribute="product">
+            <form:hidden path="id" value="${productDetail.id}}"/>
+            <form:hidden path="productName" value="${productDetail.productName}}"/>
+            <form:hidden path="productShortDescription" value="${productDetail.productShortDescription}}"/>
+            <form:hidden path="productLongDescription" value="${productDetail.productLongDescription}}"/>
+            <form:hidden path="productLink" value="${productDetail.productLink}}"/>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Wybierz kolor produktu</label>
+                <div class="col-sm-10">
+                    <form:select path="productsDetails" >
+                        <form:options value="0" label="Wybierz typ produkty"/>
+                        <form:options items="${productDetailsService}" itemLabel="productColor" itemValue="id"/>
+                    </form:select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Wybierz Rozmiar produktu</label>
+                <div class="col-sm-10">
+                    <form:select path="productSizeTables" >
+                        <form:options value="0" label="Wybierz typ produkty"/>
+                        <form:options items="${productDetailsService}" itemLabel="getProductSizeCode" itemValue="id"/>
+                    </form:select>
+                </div>
+            </div>
+            private Double price;
+
+            private int quantity;
+
+            <input type="submit" value="Kup Teraz">
+
+        </form:form>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
 <tbody>
     <tr>
-        <td>${productDetail.id}</td>
-        <td>${productDetail.productName}</td>
-        <td>${productDetail.productShortDescription}</td>
-        <td>${productDetail.productLongDescription}</td>
-        <td>${productDetail.productLink}</td>
-        <td>${productDetail.price}</td>
-        <td>${productDetail.productType}</td>
+
+
+
 
 
     </tr>
