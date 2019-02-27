@@ -184,8 +184,8 @@ public class AdminController {
         return "admin/product/update/adminUpdateProductType";
     }
     @PostMapping(value = "/productType/update", produces = "text/html; charset=UTF-8")
-    public String updateProductType(@ModelAttribute ProductType productType) {
-        productTypeService.saveProductType(productType);
+    public String updateProductType(@ModelAttribute ProductType updateProductType) {
+        productTypeService.saveProductType(updateProductType);
         return "redirect:/admin/productTypeList";
     }
     //Update SiteData By Id

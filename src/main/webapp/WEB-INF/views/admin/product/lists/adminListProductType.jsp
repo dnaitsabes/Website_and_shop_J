@@ -16,15 +16,17 @@
 
 <div class="container">
 
-    <h2>Newsletter List</h2>
+    <h2>lista typół produktów</h2>
     <p></p>
 
     <table class="table table-bordered">
+        <a href="productType/add">dodaj liste produkt</a><br>
+
         <thead>
         <tr>
             <th>id</th>
             <th>Nazwa typów produktów</th>
-            <th>Opis typół produktów</th>
+            <th>Opis typów produktów</th>
             <th>uaktualnij</th>
             <th>usuń</th>
         </tr>
@@ -36,8 +38,8 @@
                 <td>${productTypeList1.productTypeName}</td>
                 <td>${productTypeList1.productTypeDescription}</td>
 
-                <td><a href="productType/update/${productTypeList1.id}">Uaktualnij Kategorie produktów</a></td>
-                <td><a href="productType/delete/${productTypeList1.id}">usuń kategorie produktów</a></td>
+                <td><a href="productType/update/${productTypeList1.id}">Uaktualnij typ produktów</a></td>
+                <td><a href="productType/delete/${productTypeList1.id}">usuń typ produktów</a></td>
             </tr>
         </c:forEach>
         </tbody>

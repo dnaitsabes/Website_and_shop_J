@@ -1,6 +1,8 @@
 package pl.website.model;
 
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -32,7 +34,7 @@ public class ProductType {
     private ProductCategory productCategory;
 
     //Relation one to many with product, two-way relations
-    @OneToMany(mappedBy = "productType", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "productType",fetch = FetchType.EAGER)
     private List<Product> products = new ArrayList<>();
 
     public ProductType() {
