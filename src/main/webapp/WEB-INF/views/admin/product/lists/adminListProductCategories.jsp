@@ -14,7 +14,7 @@
 <%@include file="/WEB-INF/views/footerHeader/header.jsp"%>
 <div class="container">
 
-    <h2>Newsletter List</h2>
+    <h2>Lista kategorii produktów</h2>
     <p></p>
 
     <table class="table table-bordered">
@@ -23,7 +23,7 @@
             <th>id</th>
             <th>Nazwa kategorii produktów</th>
             <th>Opis kategorii produktów</th>
-            <th>typ kategorii produktół</th>
+            <th>typ kategorii produktów</th>
             <th>uaktualnij</th>
             <th>usuń</th>
         </tr>

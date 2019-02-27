@@ -26,6 +26,11 @@ public class ProductCategory {
     @NotBlank(message = "pole productCategoryDescripton nie możę być puste")
     private String productCategoryDescripton;
 
+    @Column(length =300 )
+    @Size(max = 300)
+    @NotBlank(message = "pole productCategoryDescripton nie możę być puste")
+    private String productCategoryLink;
+
 
     //Relation OneToMany with productType  - two-way relations
     @OneToMany(mappedBy = "productCategory", cascade = CascadeType.ALL)
@@ -38,9 +43,10 @@ public class ProductCategory {
     public ProductCategory() {
     }
 
-    public ProductCategory(String productCategoryName, String productCategoryDescripton, List<ProductType> productTypes, List<Order> orders) {
+    public ProductCategory(String productCategoryName, String productCategoryDescripton, String productCategoryLink, List<ProductType> productTypes, List<Order> orders) {
         this.productCategoryName = productCategoryName;
         this.productCategoryDescripton = productCategoryDescripton;
+        this.productCategoryLink = productCategoryLink;
         this.productTypes = productTypes;
         this.orders = orders;
     }
@@ -83,5 +89,13 @@ public class ProductCategory {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public String getProductCategoryLink() {
+        return productCategoryLink;
+    }
+
+    public void setProductCategoryLink(String productCategoryLink) {
+        this.productCategoryLink = productCategoryLink;
     }
 }

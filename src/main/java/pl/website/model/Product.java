@@ -1,5 +1,7 @@
 package pl.website.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
@@ -28,28 +30,37 @@ public class Product {
 
     @Column(length = 500)
     @Size(max = 500)
-    @NotBlank
-    private String productCategoryDescription; // zmienic na długi opis
+    private String productLongDescription;
+
+    @Column(length = 300)
+    @Size(max = 300)
+    private String productLink;
+
+    private Double price;
 
     // Relation Many to One with productType two-way relation
     @ManyToOne
     private ProductType productType;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private List<ProductDetails> productsDetails = new ArrayList<>();
 
 
     //Relation Many to many with oproductSuizeTable two-way relation
-    @ManyToMany(cascade = CascadeType.MERGE)
+    @Fetch(value = FetchMode.SUBSELECT)
+    @ManyToMany(cascade = CascadeType.MERGE,fetch = FetchType.EAGER)
     private List<ProductSizeTable> productSizeTables = new ArrayList<>();
 
     public Product() {
     }
 
-    public Product(String productName, String productShortDescription, String productCategoryDescription, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
+    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
         this.productName = productName;
         this.productShortDescription = productShortDescription;
-        this.productCategoryDescription = productCategoryDescription;
+        this.productLongDescription = productLongDescription;
+        this.productLink = productLink;
+        this.price = price;
         this.productType = productType;
         this.productsDetails = productsDetails;
         this.productSizeTables = productSizeTables;
@@ -79,12 +90,20 @@ public class Product {
         this.productShortDescription = productShortDescription;
     }
 
-    public String getProductCategoryDescription() {
-        return productCategoryDescription;
+    public String getProductLongDescription() {
+        return productLongDescription;
     }
 
-    public void setProductCategoryDescription(String productCategoryDescription) {
-        this.productCategoryDescription = productCategoryDescription;
+    public void setProductLongDescription(String productLongDescription) {
+        this.productLongDescription = productLongDescription;
+    }
+
+    public String getProductLink() {
+        return productLink;
+    }
+
+    public void setProductLink(String productLink) {
+        this.productLink = productLink;
     }
 
     public ProductType getProductType() {
@@ -109,6 +128,29 @@ public class Product {
 
     public void setProductSizeTables(List<ProductSizeTable> productSizeTables) {
         this.productSizeTables = productSizeTables;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productName='" + productName + '\'' +
+                ", productShortDescription='" + productShortDescription + '\'' +
+                ", productLongDescription='" + productLongDescription + '\'' +
+                ", productLink='" + productLink + '\'' +
+                ", price=" + price +
+                ", productType=" + productType +
+                ", productsDetails=" + productsDetails +
+                ", productSizeTables=" + productSizeTables +
+                '}';
     }
 }
 

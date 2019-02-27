@@ -28,7 +28,7 @@
                 <a href="productCategory/add" class="list-group-item">Dodaj kategorie produktów</a><br>
 
                 <a href="productTypeList" class="list-group-item">Lista typów produktów</a>
-                <a href="productType/add" class="list-group-item">Dodaj typów produktów</a><br>
+                <a href="productType/add" class="list-group-item">Dodaj typy produktów</a><br>
 
                 <a href="productSizeTableList" class="list-group-item">Lista rozmiarów produktów</a>
                 <a href="productSizeTable/add" class="list-group-item">Dodaj rozmiary produktów</a><br>

@@ -15,9 +15,10 @@
 
 <div class="container">
 
-    <h2>Product List</h2>
+    <h2>Lista rozmiarów produktów</h2>
     <p></p>
-
+    <td><a href="productSizeTable/add">Dodaj rozmiar produktu</a></td>
+    <br>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -38,8 +39,8 @@
                 <td>${productSizeTableList1.productSizeDescription}</td>
 
 
-                <td><a href="product/update/${productSizeTableList1.id}">Uaktualnij rozmiary produktów</a></td>
-                <td><a href="product/delete/${productSizeTableList1.id}">usuń rozmiar produktów</a></td>
+                <td><a href="productSizeTable/update/${productSizeTableList1.id}">Uaktualnij rozmiary produktów</a></td>
+                <td><a href="productSizeTable/delete/${productSizeTableList1.id}">usuń rozmiar produktów</a></td>
             </tr>
         </c:forEach>
         </tbody>

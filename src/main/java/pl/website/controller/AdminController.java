@@ -9,7 +9,9 @@ import pl.website.model.*;
 import pl.website.service.*;
 
 import javax.validation.Valid;
+import java.awt.*;
 import java.awt.print.Book;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -37,6 +39,28 @@ public class AdminController {
     private UserDetailsService userDetailsService;
 
     private String[] productSizeCode={"XS","S","M","L","XL","XXL"};
+
+    @ModelAttribute("productSizeTablesAttributes")
+    public List<ProductSizeTable> getProductSizeTable(){
+        return productSizeTableService.findAllProductSizeTable();
+    }
+    @ModelAttribute("productDetailsAttributes")
+    public List<ProductDetails> getProductDetails(){
+        return productDetailsService.findAllProductDetails();
+    }
+    @ModelAttribute("productsAttributes")
+    public List<Product> getProduct(){
+        return productService.findAllProduct();
+    }
+    @ModelAttribute("productTypesAttributes")
+    public List<ProductType> getProductType(){
+        return productTypeService.findAllProductType();
+    }
+    @ModelAttribute("productCategoriesAttributes")
+    public List<ProductCategory> getProductCategory(){
+        return productCategoryService.findAllProductCategory();
+    }
+
 
     /*ADMIN SHOW ALL  !!!*/
     //Show all newslletter
@@ -123,18 +147,18 @@ public class AdminController {
     @GetMapping(value = "/productDetails/update/{id}", produces = "text/html; charset=UTF-8")
     public String updateProductDetailsById(Model model, @PathVariable Long id){
         model.addAttribute("updateProductDetails",productDetailsService.findOneProductDetailsById(id));
-        return "admin/order/adminUpdateOrder";
+        return "admin/product/update/adminUpdateProductDetails";
     }
-    @PostMapping(value = "/update", produces = "text/html; charset=UTF-8")
-    public String updateProductDetails(@ModelAttribute ProductDetails productDetails) {
-        productDetailsService.saveProductDetails(productDetails);
-        return "redirect:/admin/ordersList";
+    @PostMapping(value = "/productDetails/update", produces = "text/html; charset=UTF-8")
+    public String updateProductDetails(@ModelAttribute ProductDetails updateProductDetails) {
+        productDetailsService.saveProductDetails(updateProductDetails);
+        return "redirect:/admin/productsDetailsList";
     }
     //Update Product By Id
     @GetMapping(value = "/products/update/{id}", produces = "text/html; charset=UTF-8")
     public String updateProductById(Model model, @PathVariable Long id){
         model.addAttribute("updateProduct",productService.findOneProductById(id));
-        return "admin/product/update/adminUpdateProduct";
+        return "admin/product/update/adminUpdateProducts";
     }
     @PostMapping(value = "/products/update", produces = "text/html; charset=UTF-8")
     public String updateProduct(@ModelAttribute Product product) {
@@ -145,11 +169,12 @@ public class AdminController {
     @GetMapping(value = "/productSizeTable/update/{id}", produces = "text/html; charset=UTF-8")
     public String updateProductSizeTableById(Model model, @PathVariable Long id){
         model.addAttribute("updateProductSizeTable",productSizeTableService.findOneProductSizeTableById(id));
+        model.addAttribute("productSizeCode",productSizeCode);
         return "admin/product/update/adminUpdateProductSizeTable";
     }
-    @PostMapping(value = "/productSizeTable/update", produces = "text/html; charset=UTF-8")
-    public String updateProductSizeTable(@ModelAttribute ProductSizeTable productSizeTable) {
-        productSizeTableService.saveProductSizeTable(productSizeTable);
+    @PostMapping(value ="/productSizeTable/update", produces = "text/html; charset=UTF-8")
+    public String updateProductSizeTable(@ModelAttribute ProductSizeTable updateProductSizeTable) {
+        productSizeTableService.saveProductSizeTable(updateProductSizeTable);
         return "redirect:/admin/productSizeTableList";
     }
     //Update ProductType By Id
@@ -196,12 +221,12 @@ public class AdminController {
     //Add new date for ProductDetail
     @GetMapping(value = "/productDetail/add", produces = "text/html; charset=UTF-8")
     public String addProductDetail(Model model) {
-        model.addAttribute("productDetail", new ProductDetails());
+        model.addAttribute("productDetails", new ProductDetails());
         return "admin/product/add/adminAddProductDetails";
     }
 
     @PostMapping(value = "/productDetail/add", produces = "text/html; charset=UTF-8")
-    public String addProductDetails(@Valid ProductDetails productDetails, BindingResult result) {
+    public String addProductDetailsPost(@Valid ProductDetails productDetails, BindingResult result) {
         if (result.hasErrors()){
             return "admin/product/add/adminAddProductDetails";
         }

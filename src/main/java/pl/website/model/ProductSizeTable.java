@@ -71,5 +71,15 @@ public class ProductSizeTable {
     public void setProductSizeDescription(String productSizeDescription) {
         this.productSizeDescription = productSizeDescription;
     }
+
+    @Override
+    public String toString() {
+        return "ProductSizeTable{" +
+                "id=" + id +
+                ", productSizeCategory='" + productSizeCategory + '\'' +
+                ", getProductSizeCode='" + getProductSizeCode + '\'' +
+                ", productSizeDescription='" + productSizeDescription + '\'' +
+                '}';
+    }
 }
 

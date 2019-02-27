@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -16,15 +17,17 @@
 
     <h2>Product List</h2>
     <p></p>
-
+    <a href="product/add">dodaj produkt</a><br>
     <table class="table table-bordered">
         <thead>
         <tr>
             <th>id</th>
             <th>nazwa produktu</th>
-            <th>opis produktu</th>
+            <th>krótki opis produktu</th>
             <th>długi opis produktu</th>
-            <th>długi opis produktu</th>
+            <th>link do zdjecia produktu</th>
+            <th>Cena</th>
+
             <th>uaktualnij</th>
             <th>usuń</th>
         </tr>
@@ -35,11 +38,13 @@
                 <td>${productsList1.id}</td>
                 <td>${productsList1.productName}</td>
                 <td>${productsList1.productShortDescription}</td>
-                <td>${productsList1.productCategoryDescription}</td>
+                <td>${productsList1.productLongDescription}</td>
+                <td>${productsList1.productLink}</td>
+                <td>${productsList1.price}</td>
 
 
-                <td><a href="product/update/${productsList1.id}">Uaktualnij Kategorie produktów</a></td>
-                <td><a href="product/delete/${productsList1.id}">usuń kategorie produktów</a></td>
+                <td><a href="products/update/${productsList1.id}">Uaktualnij produkt</a></td>
+                <td><a href="product/delete/${productsList1.id}">usuń produkt</a></td>
             </tr>
         </c:forEach>
         </tbody>

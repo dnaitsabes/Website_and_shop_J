@@ -28,21 +28,16 @@ public class ProductDetails {
     @NotBlank
     private String productTypeOfMaterial;
 
-    @NotBlank
-    private BigDecimal price;
 
 
-    @ManyToMany(mappedBy = "productsDetails")
-    private List<Product> products = new ArrayList<>();
 
     public ProductDetails() {
     }
 
-    public ProductDetails(String productColor, String productTypeOfMaterial, BigDecimal price, List<Product> products) {
+    public ProductDetails(String productColor, String productTypeOfMaterial, Double price, List<Product> products) {
         this.productColor = productColor;
         this.productTypeOfMaterial = productTypeOfMaterial;
-        this.price = price;
-        this.products = products;
+
     }
 
     public Long getId() {
@@ -69,19 +64,13 @@ public class ProductDetails {
         this.productTypeOfMaterial = productTypeOfMaterial;
     }
 
-    public BigDecimal getPrice() {
-        return price;
-    }
 
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public List<Product> getProducts() {
-        return products;
-    }
-
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    @Override
+    public String toString() {
+        return "ProductDetails{" +
+                "id=" + id +
+                ", productColor='" + productColor + '\'' +
+                ", productTypeOfMaterial='" + productTypeOfMaterial + '\'' +
+                '}';
     }
 }
