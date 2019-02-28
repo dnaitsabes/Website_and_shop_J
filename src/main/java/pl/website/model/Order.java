@@ -25,6 +25,9 @@ public class Order {
     @NotBlank
     private LocalDate orderDate;
 
+    private Double orderSumPrice;
+
+
     // relation ManyToMany with productsCategory
     @ManyToMany(cascade = CascadeType.MERGE)
     private List<ProductCategory> productCategory = new ArrayList<>();

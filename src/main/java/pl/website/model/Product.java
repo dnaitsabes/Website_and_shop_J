@@ -38,7 +38,7 @@ public class Product {
 
     private Double price;
 
-    private int quantity;
+    /*private int quantity;*/
 
     // Relation Many to One with productType two-way relation
     @ManyToOne
@@ -57,13 +57,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, int quantity, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
+    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price/*, int quantity*/, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
         this.productName = productName;
         this.productShortDescription = productShortDescription;
         this.productLongDescription = productLongDescription;
         this.productLink = productLink;
         this.price = price;
-        this.quantity = quantity;
+       /* this.quantity = quantity;*/
         this.productType = productType;
         this.productsDetails = productsDetails;
         this.productSizeTables = productSizeTables;
@@ -117,13 +117,13 @@ public class Product {
         this.price = price;
     }
 
-    public int getQuantity() {
+/*    public int getQuantity() {
         return quantity;
     }
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
-    }
+    }*/
 
     public ProductType getProductType() {
         return productType;
@@ -158,7 +158,7 @@ public class Product {
                 ", productLongDescription='" + productLongDescription + '\'' +
                 ", productLink='" + productLink + '\'' +
                 ", price=" + price +
-                ", quantity=" + quantity +
+         /*       ", quantity=" + quantity +*/
                 ", productsDetails=" + productsDetails +
                 ", productSizeTables=" + productSizeTables +
                 '}';

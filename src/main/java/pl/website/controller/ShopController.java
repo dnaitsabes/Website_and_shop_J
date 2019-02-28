@@ -3,16 +3,16 @@ package pl.website.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import pl.website.model.Product;
+import org.springframework.web.bind.annotation.*;
+import pl.website.model.*;
 import pl.website.service.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @RequestMapping("/shop")
+@SessionAttributes("cart")
 public class ShopController {
 
     @Autowired
@@ -27,7 +27,18 @@ public class ShopController {
     private ProductSizeTableService productSizeTableService;
     @Autowired
     private ProductTypeService productTypeService;
+    @Autowired
+    private Cart cart;
 
+    @ModelAttribute("productSizeTablesAttributes")
+    public List<ProductSizeTable> getProductSizeTable(){
+        return productSizeTableService.findAllProductSizeTable();
+    }
+    @ModelAttribute("productDetailsAttributes")
+    public List<ProductDetails> getProductDetails(){
+        return productDetailsService.findAllProductDetails();
+    }
+    @ModelAttribute("productsAttributes")
 
     @GetMapping(value = "/shopCategories", produces = "text/html; charset=UTF-8")
     public String shopCategories() {
@@ -56,5 +67,33 @@ public class ShopController {
     public String itemDetails(@PathVariable Long id, Model model) {
         model.addAttribute("productDetail",productService.findOneProductById(id));
         return "/shop/productDetails";
+    }
+
+    @PostMapping(value = "/productDetail/addToBasket", produces = "text/html; charset=UTF-8")
+    public String updateOrder(@ModelAttribute Product productDetail, @ModelAttribute Integer quantity, Model model) {
+
+        List<CartItem> cartItems = cart.getCartItems();
+        CartItem newCartItems = new CartItem(quantity,productDetail,quantity * productDetail.getPrice());
+        Integer quantityTest =0;
+
+        for (CartItem cartItem:cartItems){
+            if (cartItem.getProduct().equals(productDetail)){
+               quantityTest= cartItem.getQuantity();
+            }
+        }
+        if (quantity !=0) {
+            newCartItems.setQuantity(quantityTest + quantity);
+        }else {
+            cart.addToCart(newCartItems);
+        }
+        model.addAttribute("cart", cart);
+        return "redirect:/shop/basket";
+    }
+
+    @RequestMapping(value="/basket", produces = "text/html; charset=UTF-8")
+    public String showBasket(Model model, HttpSession sessionCart){
+
+
+        return "shop/basket";
     }
 }
