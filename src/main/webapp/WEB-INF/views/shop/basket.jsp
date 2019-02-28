@@ -14,7 +14,7 @@
 <body>
 <%@include file="/header.jsp"%>
 
-
+<h3>${cart}</h3>
 
 
 

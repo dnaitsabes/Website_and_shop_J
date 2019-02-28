@@ -35,8 +35,8 @@
         <h4>${productDetail.productLongDescription}</h4>
         <h4><strong>${productDetail.price} PLN</strong></h4>
 
-        <form:form method="post" modelAttribute="productDetail">
-            <form:hidden path="id" value="${productDetail.id}}"/>
+        <form:form method="post" modelAttribute="product" action="/shop/productDetail/addToBasket">
+            <form:hidden path="id" value="${productDetail.id}"/>
             <form:hidden path="productName" value="${productDetail.productName}}"/>
             <form:hidden path="productShortDescription" value="${productDetail.productShortDescription}}"/>
             <form:hidden path="productLongDescription" value="${productDetail.productLongDescription}}"/>
@@ -61,9 +61,7 @@
             </div>
             <h4><strong><input type="number" min="0" max="10" name="quantity"> </strong></h4>
 
-            private Double price;
 
-            private int quantity;
 
             <input type="submit" value="Kup Teraz">
 

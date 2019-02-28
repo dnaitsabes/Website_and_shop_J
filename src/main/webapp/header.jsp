@@ -21,6 +21,7 @@
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            <li><a href="/shop/basket"><span class="active"></span> Koszyk</a></li>
             <li><a href="/regulations"><span class="active"></span> Regulamin</a></li>
             <li><a href="/contactDetails"><span class="glyphicon glyphicon-envelope"></span> Dane kontaktowe</a></li>
             <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Rejestracja</a></li>

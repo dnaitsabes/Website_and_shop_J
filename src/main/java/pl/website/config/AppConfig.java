@@ -112,6 +112,8 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public UserDetailsConverter getUserDetailsConverter() {
         return new UserDetailsConverter();
     }
+
+
     //Ziarno do konfiguracji walidacji
     @Bean(name="localeResolver")
     public LocaleContextResolver getLocaleContextResolver() {

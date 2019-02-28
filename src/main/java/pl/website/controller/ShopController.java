@@ -63,21 +63,23 @@ public class ShopController {
         return "/shop/acesories";
     }
 
-    @RequestMapping(value = "/productDetail/{id}", produces = "text/html; charset=UTF-8")
+    @GetMapping(value = "/productDetail/{id}", produces = "text/html; charset=UTF-8")
     public String itemDetails(@PathVariable Long id, Model model) {
         model.addAttribute("productDetail",productService.findOneProductById(id));
+        model.addAttribute("product", new Product());
+
         return "/shop/productDetails";
     }
 
     @PostMapping(value = "/productDetail/addToBasket", produces = "text/html; charset=UTF-8")
-    public String updateOrder(@ModelAttribute Product productDetail, @ModelAttribute Integer quantity, Model model) {
+    public String updateOrder(@ModelAttribute Product product, @RequestParam Integer quantity, Model model) {
 
         List<CartItem> cartItems = cart.getCartItems();
-        CartItem newCartItems = new CartItem(quantity,productDetail,quantity * productDetail.getPrice());
+        CartItem newCartItems = new CartItem(quantity,product,quantity * product.getPrice());
         Integer quantityTest =0;
 
         for (CartItem cartItem:cartItems){
-            if (cartItem.getProduct().equals(productDetail)){
+            if (cartItem.getProduct().equals(product)){
                quantityTest= cartItem.getQuantity();
             }
         }
