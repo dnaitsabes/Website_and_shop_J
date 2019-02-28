@@ -12,51 +12,47 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <script rel="stylesheet" src="css/style.css"></script>
 </head>
-<body>
+<a>
 <%@include file="/header.jsp"%>
 
-<h2>Lista zamówionych produktów</h2>
 
-<c:forEach items="${cart}" var="simpleCart">
+
+
 
     <div class="container">
-
+        <h2>Lista zamówionych produktów</h2>
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>id</th>
                 <th>nazwa produktu</th>
                 <th>krótki opis produktu</th>
-                <th>długi opis produktu</th>
-                <th>link do zdjecia produktu</th>
-                <th>typ produktu</th>
+                <th>cena za 1 produkt</th>
+                <th>ilość</th>
+                <th>Cena za wszystkie produkty</th>
 
-                <th>Cena</th>
-
-                <th>uaktualnij</th>
                 <th>usuń</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${productsList}" var="productsList1">
+            <c:forEach items="${cart.cartItems}" var="simpleCart">
                 <tr>
-                    <td>${productsList1.id}</td>
-                    <td>${productsList1.productName}</td>
-                    <td>${productsList1.productShortDescription}</td>
-                    <td>${productsList1.productLongDescription}</td>
-                    <td>${productsList1.productLink}</td>
-                    <td>${productsList1.price}</td>
-                    <td>${productsList1.productType}</td>
+                    <td>${simpleCart.product.productName}</td>
+                    <td>${simpleCart.product.productShortDescription}</td>
+                    <td>${simpleCart.product.price}</td>
+                    <td>${simpleCart.quantity}</td>
+                    <td>${simpleCart.productSumPrice}  </td>
 
-                    <td><a href="product/delete/${productsList1.id}">usuń produkt</a></td>
+                    <td><a href="/shop/delete/${simpleCart.product.id}">usuń produkt</a></td>
                 </tr>
             </c:forEach>
+           Suma zamówień <tr>${simpleCart.productSumPrice}</tr>
             </tbody>
         </table>
+        <a href="/order/confirmOrder">
+            <button type="button" class="btn btn-primary btn-lg">Zamawiam</button>
+        </a>
     </div>
 
-</c:forEach>
-<h3>${cart}</h3>
 
 
 

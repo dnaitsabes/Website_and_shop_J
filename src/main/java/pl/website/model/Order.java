@@ -28,9 +28,9 @@ public class Order {
     private Double orderSumPrice;
 
 
-    // relation ManyToMany with productsCategory
-    @ManyToMany(cascade = CascadeType.MERGE)
-    private List<ProductCategory> productCategory = new ArrayList<>();
+    // relation ManyToMany with products
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private List<Product> product = new ArrayList<>();
 
     @ManyToOne
     private User user;
@@ -38,10 +38,11 @@ public class Order {
     public Order() {
     }
 
-    public Order(String orderCode, LocalDate orderDate, List<ProductCategory> productCategory, User user) {
+    public Order(String orderCode, LocalDate orderDate, Double orderSumPrice, List<Product> product, User user) {
         this.orderCode = orderCode;
         this.orderDate = orderDate;
-        this.productCategory = productCategory;
+        this.orderSumPrice = orderSumPrice;
+        this.product = product;
         this.user = user;
     }
 
@@ -69,12 +70,20 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public List<ProductCategory> getProductCategory() {
-        return productCategory;
+    public Double getOrderSumPrice() {
+        return orderSumPrice;
     }
 
-    public void setProductCategory(List<ProductCategory> productCategory) {
-        this.productCategory = productCategory;
+    public void setOrderSumPrice(Double orderSumPrice) {
+        this.orderSumPrice = orderSumPrice;
+    }
+
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(List<Product> product) {
+        this.product = product;
     }
 
     public User getUser() {

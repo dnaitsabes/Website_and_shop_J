@@ -8,11 +8,11 @@ import pl.website.model.*;
 import pl.website.service.*;
 
 import javax.servlet.http.HttpSession;
+import java.util.Iterator;
 import java.util.List;
 
 @Controller
 @RequestMapping("/shop")
-@SessionAttributes("cart")
 public class ShopController {
 
     @Autowired
@@ -76,31 +76,42 @@ public class ShopController {
 
         List<CartItem> cartItems = cart.getCartItems();
         CartItem newCartItems = new CartItem(quantity,product,quantity * product.getPrice());
-        Integer quantityTest =0;
+        Boolean quantityTest=false;
 
-        if (cartItems !=null) {
+        if (cartItems.size() !=0) {
             for (CartItem cartItem : cartItems) {
                 if (cartItem.getProduct().equals(product)) {
-                    quantityTest = cartItem.getQuantity();
+                    cartItem.setQuantity(cartItem.getQuantity() + quantity);
+                    quantityTest=true;
                 }
             }
-            if (quantity != 0) {
-                newCartItems.setQuantity(quantityTest + quantity);
-            } else {
+            if (quantityTest == false) {
                 cart.addToCart(newCartItems);
             }
         }else {
             cart.addToCart(newCartItems);
         }
         model.addAttribute("cart", cart);
-
-        return "redirect:/shop/basket";
+        return "/shop/basket";
     }
 
     @RequestMapping(value="/basket", produces = "text/html; charset=UTF-8")
-    public String showBasket(Model model, HttpSession sessionCart){
+    public String showBasket(Model model){
 
 
         return "shop/basket";
     }
+    @GetMapping(value = "/delete/{id}", produces = "text/html; charset=UTF-8")
+    public String deleteProductFromBasket(Model model, @PathVariable Long id){
+        List<CartItem> cartItems = cart.getCartItems();
+        Iterator<CartItem> iterator = cartItems.iterator();
+        while (iterator.hasNext()) {
+            if (iterator.next().getProduct().equals(productService.findOneProductById(id))) {
+                iterator.remove();
+            }
+        }
+        model.addAttribute("cart", cart);
+        return "/shop/basket";
+    }
+
 }

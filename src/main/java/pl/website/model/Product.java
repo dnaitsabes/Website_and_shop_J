@@ -1,5 +1,6 @@
 package pl.website.model;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotBlank;
@@ -37,8 +38,9 @@ public class Product {
     private String productLink;
 
     private Double price;
+    @ColumnDefault("0")
+    private Integer quantity;
 
-    /*private int quantity;*/
 
     // Relation Many to One with productType two-way relation
     @ManyToOne
@@ -57,12 +59,13 @@ public class Product {
     public Product() {
     }
 
-    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
+    public Product(String productName, String productShortDescription, String productLongDescription, String productLink, Double price, Integer quantity, ProductType productType, List<ProductDetails> productsDetails, List<ProductSizeTable> productSizeTables) {
         this.productName = productName;
         this.productShortDescription = productShortDescription;
         this.productLongDescription = productLongDescription;
         this.productLink = productLink;
         this.price = price;
+        this.quantity = quantity;
         this.productType = productType;
         this.productsDetails = productsDetails;
         this.productSizeTables = productSizeTables;
@@ -140,6 +143,16 @@ public class Product {
         this.productSizeTables = productSizeTables;
     }
 
+
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -149,10 +162,13 @@ public class Product {
                 ", productLongDescription='" + productLongDescription + '\'' +
                 ", productLink='" + productLink + '\'' +
                 ", price=" + price +
+                ", quantity=" + quantity +
                 ", productsDetails=" + productsDetails +
                 ", productSizeTables=" + productSizeTables +
                 '}';
     }
+
+
 }
 
 

@@ -32,23 +32,13 @@ public class ProductCategory {
     private String productCategoryLink;
 
 
-/*    //Relation OneToMany with productType  - two-way relations
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="id_products_categories")
-    private List<ProductType> productTypes = new ArrayList<>();*/
-
-    //Relation ManyToMany with order two-way relation
-    @ManyToMany(mappedBy = "productCategory")
-    private List<Order> orders = new ArrayList<>();
-
     public ProductCategory() {
     }
 
-    public ProductCategory(String productCategoryName, String productCategoryDescripton, String productCategoryLink, List<Order> orders) {
+    public ProductCategory(String productCategoryName, String productCategoryDescripton, String productCategoryLink) {
         this.productCategoryName = productCategoryName;
         this.productCategoryDescripton = productCategoryDescripton;
         this.productCategoryLink = productCategoryLink;
-        this.orders = orders;
     }
 
     public Long getId() {
@@ -75,16 +65,6 @@ public class ProductCategory {
         this.productCategoryDescripton = productCategoryDescripton;
     }
 
-
-
-    public List<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
-
     public String getProductCategoryLink() {
         return productCategoryLink;
     }
@@ -100,7 +80,6 @@ public class ProductCategory {
                 ", productCategoryName='" + productCategoryName + '\'' +
                 ", productCategoryDescripton='" + productCategoryDescripton + '\'' +
                 ", productCategoryLink='" + productCategoryLink + '\'' +
-                ", orders=" + orders +
                 '}';
     }
 }
