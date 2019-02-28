@@ -41,6 +41,7 @@
             <form:hidden path="productShortDescription" value="${productDetail.productShortDescription}}"/>
             <form:hidden path="productLongDescription" value="${productDetail.productLongDescription}}"/>
             <form:hidden path="productLink" value="${productDetail.productLink}}"/>
+            <form:hidden path="price" value="${productDetail.price}"/>
             <div class="form-group">
                 <label class="control-label col-sm-2">Wybierz kolor produktu</label>
                 <div class="col-sm-10">

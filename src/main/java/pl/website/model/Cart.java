@@ -44,4 +44,11 @@ public class Cart {
         this.sum = sum;
     }
 
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "cartItems=" + cartItems +
+                ", sum=" + sum +
+                '}';
+    }
 }

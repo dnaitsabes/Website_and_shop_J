@@ -78,17 +78,22 @@ public class ShopController {
         CartItem newCartItems = new CartItem(quantity,product,quantity * product.getPrice());
         Integer quantityTest =0;
 
-        for (CartItem cartItem:cartItems){
-            if (cartItem.getProduct().equals(product)){
-               quantityTest= cartItem.getQuantity();
+        if (cartItems !=null) {
+            for (CartItem cartItem : cartItems) {
+                if (cartItem.getProduct().equals(product)) {
+                    quantityTest = cartItem.getQuantity();
+                }
             }
-        }
-        if (quantity !=0) {
-            newCartItems.setQuantity(quantityTest + quantity);
+            if (quantity != 0) {
+                newCartItems.setQuantity(quantityTest + quantity);
+            } else {
+                cart.addToCart(newCartItems);
+            }
         }else {
             cart.addToCart(newCartItems);
         }
         model.addAttribute("cart", cart);
+
         return "redirect:/shop/basket";
     }
 
