@@ -38,8 +38,7 @@
 
 </form:form>
 
-<footer class="container-fluid text-center" id="footer">
+<%@include file="/footer.jsp"%>>
 
-</footer>
 </body>
 </html>

@@ -15,7 +15,14 @@
 <%@include file="/header.jsp"%>
 
 <form:form class="form-horizontal" method="post" modelAttribute="user">
-    <form:errors path="*"/><br><br>
+
+    <div class="form-group">
+        <label class="control-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <form:errors path="*"/><br><br>
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="control-label col-sm-2">Email:</label>
         <div class="col-sm-10">
@@ -40,12 +47,12 @@
             <form:password path="password" class="form-control" />
         </div>
     </div>
-    <div class="form-group">
+<%--    <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
             <label><form:checkbox path="admin" value="true"/>Admin</label>
         </div>
-    </div>
-
+    </div>--%>
+    <form:hidden path="admin" value="false"/>
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-10">
             <button type="submit" class="btn btn-default">Submit</button>
@@ -55,6 +62,7 @@
 
 
 
+<%@include file="/footer.jsp"%>>
 
 
 </body>

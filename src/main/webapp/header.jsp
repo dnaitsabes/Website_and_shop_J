@@ -5,7 +5,7 @@
         <div class="navbar-header" `>
             <a class="navbar-brand" href="/">
                 <img src="/pictures/logo.jpg" style="height:100%;display:inline-block;">
-                <span>Home made by Justyna</span>
+                <span>Home made by :)</span>
             </a>
         </div>
         <ul class="nav navbar-nav">

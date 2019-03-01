@@ -15,7 +15,8 @@
 <%@include file="/header.jsp"%>
 
 
-</footer>
+<%@include file="/footer.jsp"%>>
+
 
 
 

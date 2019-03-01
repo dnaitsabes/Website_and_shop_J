@@ -16,7 +16,7 @@
 
 
 
-</footer>
+<%@include file="/footer.jsp"%>>
 
 
 

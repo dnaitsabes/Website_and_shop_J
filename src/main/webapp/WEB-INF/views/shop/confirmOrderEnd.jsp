@@ -13,6 +13,12 @@
 <body>
 <%@include file="/header.jsp"%>
 
+<div class="jumbotron text-center">
+    <h1>Zamówienie złożone</h1>
+
+</div>
+
+
 
 
 <%@include file="/footer.jsp"%>>
