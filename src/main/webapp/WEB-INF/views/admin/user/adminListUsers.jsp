@@ -1,6 +1,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="pl">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <head>
     <title>Shop online JS</title>
     <meta charset="utf-8">
@@ -36,7 +38,7 @@ div class="container">
         <tr>
             <td>${usersList1.id}</td>
             <td>${usersList1.firstName}</td>
-            <td>${usersList1.LastName}</td>
+            <td>${usersList1.lastName}</td>
             <td>${usersList1.email}</td>
             <td>${usersList1.userCreatedDate}</td>
             <td>${usersList1.admin}</td>

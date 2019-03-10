@@ -36,8 +36,8 @@
                 <td>${ordersList1.id}</td>
                 <td>${ordersList1.orderCode}</td>
                 <td>${ordersList1.orderDate}</td>
-                <c:forEach items="${ordersList1.productCategory}" var="productCategory">
-                    <td>${productCategory.id} ${productCategory.productCategoryName}</td>
+                <c:forEach items="${ordersList1.product}" var="productCategory">
+                    <td>${product.id} ${product.productName}</td>
                 </c:forEach>
                 <td><a href="order/update/${ordersList1.id}">Uaktualnij Zamówienie</a></td>
                 <td><a href="order/delete/${ordersList1.id}">usuń zamówienie</a></td>

@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Controller
 @RequestMapping("/order")
@@ -53,6 +54,8 @@ public class OrderController {
         LocalDate dateNow= LocalDate.now();
         List<CartItem> cartItems = cart.getCartItems();
         List<Product> newProductLists = new ArrayList<>();
+        Random random = new Random(10000000);
+       String randomNumber= random.toString();
         Double orderSum =0.00;
         if (cartItems.size() != 0) {
             for (CartItem cartItem : cartItems) {
@@ -60,7 +63,7 @@ public class OrderController {
                 orderSum+=cartItem.getProductSumPrice();
             }
         }
-        Order newOrder = new Order(LocalDate.now().toString(), dateNow, orderSum, newProductLists,userLoged);
+        Order newOrder = new Order(LocalDate.now().toString() + randomNumber, dateNow, orderSum, newProductLists,userLoged);
         orderService.saveOrder(newOrder);
         return "/shop/confirmOrderEnd";
     }

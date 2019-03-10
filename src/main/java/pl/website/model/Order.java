@@ -22,7 +22,7 @@ public class Order {
     private String orderCode;
 
     @Column
-  
+
     private LocalDate orderDate;
 
     private Double orderSumPrice;

@@ -44,10 +44,10 @@
             <form:hidden path="price" value="${productDetail.price}"/>
             <div class="form-group">
                 <label class="control-label col-sm-2">Wybierz kolor produktu</label>
-                <div class="col-sm-10">
-                    <form:select path="productsDetails" >
+                <div class="col-sm-10" >
+                    <form:select path="productsDetails" class="form-control">
                         <form:options value="0" label="Wybierz typ produkty"/>
-                        <form:options items="${productDetailsAttributes}" itemLabel="productColor" itemValue="id"/>
+                        <form:options items="${productDetailsAttributes}" itemLabel="productColor" itemValue="id" />
                     </form:select>
                 </div>
             </div>
