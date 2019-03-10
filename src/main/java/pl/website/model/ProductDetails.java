@@ -8,7 +8,7 @@ import java.util.List;
 //Powiązanie ManyToMany z productDetails dwustronnie
 @Entity
 @Table(name = "products_details")
-public class ProductDetails {
+public class  ProductDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
