@@ -22,16 +22,75 @@ public class Order {
     private String orderCode;
 
     @Column
-    @NotBlank
+
     private LocalDate orderDate;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_order")
-    private List<Product> products = new ArrayList<>();
+    private Double orderSumPrice;
 
 
-    @ManyToOne(mappedBy = "order", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    // relation ManyToMany with products
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private List<Product> product = new ArrayList<>();
+
+    @ManyToOne
     private User user;
 
+    public Order() {
+    }
 
+    public Order(String orderCode, LocalDate orderDate, Double orderSumPrice, List<Product> product, User user) {
+        this.orderCode = orderCode;
+        this.orderDate = orderDate;
+        this.orderSumPrice = orderSumPrice;
+        this.product = product;
+        this.user = user;
+    }
+
+    public Long getId() {
+        return Id;
+    }
+
+    public void setId(Long id) {
+        Id = id;
+    }
+
+    public String getOrderCode() {
+        return orderCode;
+    }
+
+    public void setOrderCode(String orderCode) {
+        this.orderCode = orderCode;
+    }
+
+    public LocalDate getOrderDate() {
+        return orderDate;
+    }
+
+    public void setOrderDate(LocalDate orderDate) {
+        this.orderDate = orderDate;
+    }
+
+    public Double getOrderSumPrice() {
+        return orderSumPrice;
+    }
+
+    public void setOrderSumPrice(Double orderSumPrice) {
+        this.orderSumPrice = orderSumPrice;
+    }
+
+    public List<Product> getProduct() {
+        return product;
+    }
+
+    public void setProduct(List<Product> product) {
+        this.product = product;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

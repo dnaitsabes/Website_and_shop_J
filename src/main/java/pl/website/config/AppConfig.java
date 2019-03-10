@@ -11,10 +11,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.LocaleContextResolver;
 import org.springframework.web.servlet.ViewResolver;
+import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
+import pl.website.converter.*;
 
 
 import javax.persistence.EntityManagerFactory;
@@ -28,6 +30,14 @@ import java.util.Locale;
 //do dataSpring
 @EnableJpaRepositories("pl.website.repository")
 public class AppConfig extends WebMvcConfigurerAdapter{
+    //Przepuszczanie statycznych obiektów
+    @Override
+
+    public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+
+        configurer.enable();
+
+    }
 
     @Bean
     public ViewResolver viewResolver() {
@@ -36,6 +46,7 @@ public class AppConfig extends WebMvcConfigurerAdapter{
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
         return viewResolver; }
+
     @Bean
     public LocalEntityManagerFactoryBean entityManagerFactory() {
         LocalEntityManagerFactoryBean emfb = new LocalEntityManagerFactoryBean();
@@ -45,32 +56,64 @@ public class AppConfig extends WebMvcConfigurerAdapter{
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         JpaTransactionManager tm = new JpaTransactionManager(emf);
         return tm; }
- /*       //Rejestracja konwertwrów Authora i Publishera i Categorii
+        //Rejestracja konwertwrów
     @Override
     public void addFormatters(FormatterRegistry registry) {
-        registry.addConverter(getPublisherConverter());
-        registry.addConverter(getAuthorConverter());
-        registry.addConverter(getCategoryConverter());
+        registry.addConverter(getNewsletterConverter());
+        registry.addConverter(getOrderConverter());
+        registry.addConverter(getProductCategoryConverter());
+        registry.addConverter(getProductConverter());
+        registry.addConverter(getProductDetailsConverter());
+        registry.addConverter(getProductSizeTableConverter());
+        registry.addConverter(getProductTypeConverter());
+        registry.addConverter(getSiteDataConverter());
+        registry.addConverter(getUserConverter());
+        registry.addConverter(getUserDetailsConverter());
 
     }
-    //Rejestracja konwerterów Publisher
+    //Rejestracja konwerterów stwozrenie ziaren
     @Bean
-    public PublisherConverter getPublisherConverter() {
-        return new PublisherConverter();
+    public NewsletterConverter getNewsletterConverter() {
+        return new NewsletterConverter();
+    }
+    @Bean
+    public OrderConverter getOrderConverter(){
+        return new OrderConverter();
+    }
+    @Bean
+    public ProductCategoryConverter getProductCategoryConverter() {
+        return new ProductCategoryConverter();
+    }
+    @Bean
+    public ProductConverter getProductConverter() {
+        return new ProductConverter();
+    }
+    @Bean
+    public ProductDetailsConverter getProductDetailsConverter() {
+        return new ProductDetailsConverter();
+    }
+    @Bean
+    public ProductSizeTableConverter getProductSizeTableConverter() {
+        return new ProductSizeTableConverter();
+    }
+    @Bean
+    public ProductTypeConverter getProductTypeConverter() {
+        return new ProductTypeConverter();
+    }
+    @Bean
+    public SiteDataConverter getSiteDataConverter() {
+        return new SiteDataConverter();
+    }
+    @Bean
+    public UserConverter getUserConverter() {
+        return new UserConverter();
+    }
+    @Bean
+    public UserDetailsConverter getUserDetailsConverter() {
+        return new UserDetailsConverter();
     }
 
-    //Rejestracja konwerterów Author
 
-    @Bean
-    public CategoryConverter getCategoryConverter(){
-        return new CategoryConverter();
-    }
-    //Rejestracja konwerterów Categorii
-    @Bean
-    public AuthorConverter getAuthorConverter() {
-        return new AuthorConverter();
-    }
-*/
     //Ziarno do konfiguracji walidacji
     @Bean(name="localeResolver")
     public LocaleContextResolver getLocaleContextResolver() {
